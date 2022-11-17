@@ -50,8 +50,8 @@ namespace Unit05.Game.Scripting
                 direction = new Point(0, Constants.CELL_SIZE);
             }
 
-            Snake snake = (Snake)cast.GetFirstActor("snake");
-            snake.TurnHead(direction);
+            Cycle cycle = (Cycle)cast.GetFirstActor("player1");
+            cycle.TurnHead(direction);
 
         }
     }
