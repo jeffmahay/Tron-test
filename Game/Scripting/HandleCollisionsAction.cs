@@ -49,7 +49,7 @@ namespace Unit05.Game.Scripting
             if (snake.GetHead().GetPosition().Equals(food.GetPosition()))
             {
                 int points = food.GetPoints();
-                snake.GrowTail(points);
+                snake.GrowTail();
                 score.AddPoints(points);
                 food.Reset();
             }
