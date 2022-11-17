@@ -42,23 +42,17 @@ namespace Unit05.Game.Scripting
         /// <param name="cast">The cast of actors.</param>
         private void HandleFoodCollisions(Cast cast)
         {
-            // Snake snake = (Snake)cast.GetFirstActor("snake");
-            // Score score = (Score)cast.GetFirstActor("score");
-            // Food food = (Food)cast.GetFirstActor("food");
+            Cycle snake = (Cycle)cast.GetFirstActor("snake");
+            Score score = (Score)cast.GetFirstActor("score");
+            Food food = (Food)cast.GetFirstActor("food");
             
-            // if (snake.GetHead().GetPosition().Equals(food.GetPosition()))
-            // {
-            //     int points = food.GetPoints();
-            //     snake.GrowTail();
-            //     score.AddPoints(points);
-            //     food.Reset();
-            // }
-
-            Snake player1 = (Snake)cast.GetFirstActor("snake");
-            // Snake player2 = (Snake)cast.GetFirstActor("player2");
-
-            player1.GrowTail();
-            // player2.GrowTail();
+            if (snake.GetHead().GetPosition().Equals(food.GetPosition()))
+            {
+                int points = food.GetPoints();
+                snake.GrowTail(points);
+                score.AddPoints(points);
+                food.Reset();
+            }
         }
 
         /// <summary>
