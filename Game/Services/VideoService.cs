@@ -108,11 +108,11 @@ namespace Unit05.Game.Services
         {
             for (int x = 0; x < Constants.MAX_X; x += Constants.CELL_SIZE)
             {
-                Raylib.DrawLine(x, 0, x, Constants.MAX_Y, Raylib_cs.Color.WHITE);
+                Raylib.DrawLine(x, 0, x, Constants.MAX_Y, Raylib_cs.Color.GRAY);
             }
             for (int y = 0; y < Constants.MAX_Y; y += Constants.CELL_SIZE)
             {
-                Raylib.DrawLine(0, y, Constants.MAX_X, y, Raylib_cs.Color.WHITE);
+                Raylib.DrawLine(0, y, Constants.MAX_X, y, Raylib_cs.Color.GRAY);
             }
         }
 

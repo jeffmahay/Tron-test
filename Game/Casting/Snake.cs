@@ -8,17 +8,16 @@ namespace Unit05.Game.Casting
     /// <para>A long limbless reptile.</para>
     /// <para>The responsibility of Snake is to move itself.</para>
     /// </summary>
-    public class Cycle : Actor
+    public class Snake : Actor
     {
         private List<Actor> segments = new List<Actor>();
 
         /// <summary>
         /// Constructs a new instance of a Snake.
         /// </summary>
-        public Cycle(Color color, int startingX, int startingY)
+        public Snake()
         {
-            SetColor(color);
-            PrepareBody(startingX, startingY);
+            PrepareBody();
         }
 
         /// <summary>
@@ -65,7 +64,7 @@ namespace Unit05.Game.Casting
                 segment.SetPosition(position);
                 segment.SetVelocity(velocity);
                 segment.SetText("#");
-                segment.SetColor(GetColor());
+                segment.SetColor(Constants.GREEN);
                 segments.Add(segment);
             }
         }
@@ -99,14 +98,17 @@ namespace Unit05.Game.Casting
         /// <summary>
         /// Prepares the snake body for moving.
         /// </summary>
-        private void PrepareBody(int x, int y)
+        private void PrepareBody()
         {
-            for (int i = 0; i < Constants.CYCLE_LENGTH; i++)
+            int x = Constants.MAX_X / 2;
+            int y = Constants.MAX_Y / 2;
+
+            for (int i = 0; i < Constants.SNAKE_LENGTH; i++)
             {
                 Point position = new Point(x - i * Constants.CELL_SIZE, y);
                 Point velocity = new Point(1 * Constants.CELL_SIZE, 0);
-                string text = i == 0 ? "O" : "#";
-                Color color = i == 0 ? Constants.YELLOW : GetColor();
+                string text = i == 0 ? "8" : "#";
+                Color color = i == 0 ? Constants.YELLOW : Constants.GREEN;
 
                 Actor segment = new Actor();
                 segment.SetPosition(position);
