@@ -52,14 +52,12 @@ namespace Unit05.Game.Casting
         /// Grows the snake's tail by the given number of segments.
         /// </summary>
         /// <param name="numberOfSegments">The number of segments to grow.</param>
-        public void GrowTail(int numberOfSegments)
+        public void GrowTail()
         {
-            for (int i = 0; i < numberOfSegments; i++)
-            {
-                Actor tail = segments.Last<Actor>();
-                Point velocity = tail.GetVelocity();
-                Point offset = velocity.Reverse();
-                Point position = tail.GetPosition().Add(offset);
+            Actor tail = segments.Last<Actor>();
+            Point velocity = tail.GetVelocity();
+            Point offset = velocity.Reverse();
+            Point position = tail.GetPosition().Add(offset);
 
                 Actor segment = new Actor();
                 segment.SetPosition(position);
