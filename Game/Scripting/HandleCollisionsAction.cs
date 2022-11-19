@@ -70,21 +70,29 @@ namespace Unit05.Game.Scripting
             Actor head1 = player1.GetHead();
             List<Actor> body1 = player1.GetBody();
 
+            Snake player2 = (Snake)cast.GetFirstActor("player2");
+            Actor head2 = player2.GetHead();
+            List<Actor> body2 = player2.GetBody();
+
             foreach (Actor segment in body1)
             {
                 if (segment.GetPosition().Equals(head1.GetPosition()))
                 {
                     isGameOver = true;
                 }
+                if (segment.GetPosition().Equals(head2.GetPosition()))
+                {
+                    isGameOver = true;
+                }
             }
-
-            Snake player2 = (Snake)cast.GetFirstActor("player2");
-            Actor head2 = player1.GetHead();
-            List<Actor> body2 = player1.GetBody();
 
             foreach (Actor segment in body2)
             {
                 if (segment.GetPosition().Equals(head2.GetPosition()))
+                {
+                    isGameOver = true;
+                }
+                if (segment.GetPosition().Equals(head1.GetPosition()))
                 {
                     isGameOver = true;
                 }
